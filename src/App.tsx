@@ -1,27 +1,19 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import './App.scss';
+import { NavBar } from './components/Header/NavBar';
+import { Footer } from './components/Footer';
 
-interface Props {
-  onClick: () => void;
-}
-
-export const Provider: React.FC<Props> = React.memo(
-  ({ onClick, children }) => (
-    <button
-      type="button"
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  ),
+const App: React.FC = () => (
+  <div className="App">
+    <NavBar />
+    <main className="main">
+      <div className="main__container">
+        <Outlet />
+      </div>
+    </main>
+    <Footer />
+  </div>
 );
 
-export const App: React.FC = () => {
-  return (
-    <div className="starter">
-      <Provider onClick={() => ({})}>
-        <TodoList />
-      </Provider>
-    </div>
-  );
-};
+export default App;

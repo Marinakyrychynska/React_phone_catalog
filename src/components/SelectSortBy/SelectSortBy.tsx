@@ -43,12 +43,11 @@ export const SelectSortBy: React.FC = () => {
 
   return (
     <div className="select">
-      <label
+      <div
         className="select__title"
-        htmlFor="triger"
       >
         Sort by
-      </label>
+      </div>
       <div className="select__container">
         <button
           type="button"

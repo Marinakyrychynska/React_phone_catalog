@@ -36,17 +36,16 @@ export const SelectItems: React.FC = () => {
 
   return (
     <div className="selectItems">
-      <label
+      <div
         className="selectItems__title"
-        htmlFor="triger"
       >
         Items on page
-      </label>
+      </div>
       <div className="selectItems__container">
         <button
+          id="triger"
           className="selectItems__btn"
           type="button"
-          id="triger"
           onClick={() => setIsSelectOpen(!isSelectOpen)}
           onBlur={handleBlur}
         >

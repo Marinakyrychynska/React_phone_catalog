@@ -10,9 +10,10 @@ import { SelectSortBy } from '../../components/SelectSortBy';
 import { Filter } from '../../helpers/Filters';
 import { SelectItems } from '../../components/SelectItems';
 import { BreadCrambs } from '../../components/BreadCrambs';
+import { getSearchWith } from '../../helpers/SearchHelper';
 
 export const PhonesPage: React.FC = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -23,7 +24,7 @@ export const PhonesPage: React.FC = () => {
   const currentPage = +(searchParams.get('page') || '1');
   const perPage = +(searchParams.get('perPage') || '') || total;
   const pagesAmount = Math.ceil(total / perPage);
-  // const query = searchParams.get('query' || '');
+  const query = searchParams.get('query' || '');
   const firstItem = (currentPage * +perPage) - perPage;
   const lastItem = (perPage * currentPage) < total
     ? perPage * currentPage
@@ -43,6 +44,14 @@ export const PhonesPage: React.FC = () => {
         setIsLoading(false);
       });
   }, []);
+
+  useMemo(() => {
+    if (query) {
+      setSearchParams(getSearchWith({
+        page: '1',
+      }, searchParams));
+    }
+  }, [query]);
 
   return (
     <div className="productPage">

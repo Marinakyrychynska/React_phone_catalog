@@ -24,11 +24,10 @@ export const SelectSortBy: React.FC = () => {
     setIsSelectOpen(false);
   };
 
-  const handleBlur = (event: React.FocusEvent<HTMLButtonElement, Element>) => {
-    if (
-      event.relatedTarget
-      && event.relatedTarget?.className.includes('select__dropdown')
-    ) {
+  const handleBlur = (event: React.FocusEvent<HTMLButtonElement>) => {
+    const relatedTarget = event.relatedTarget as HTMLElement | null;
+
+    if (relatedTarget?.className.includes('select__dropdown')) {
       return;
     }
 

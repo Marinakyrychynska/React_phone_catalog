@@ -20,7 +20,7 @@ const getProductById = (products: Product[], id: string) => {
   return products.find(product => product.itemId === id);
 };
 
-export const ProductDetailsPage = () => {
+export const ProductDetailsPage: React.FC = () => {
   const { productId } = useParams();
   const [products, setProducts] = useState<Product[]>([]);
   const [product, setProduct] = useState<ProductDetails | null>(null);

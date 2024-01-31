@@ -1,7 +1,10 @@
 import React from 'react';
-import './Pagination.scss';
-import { Link, useSearchParams } from 'react-router-dom';
 import classNames from 'classnames';
+import {
+  Link,
+  useSearchParams,
+} from 'react-router-dom';
+import './Pagination.scss';
 import { getNumbers } from '../../helpers/helpers';
 import { getSearchWith } from '../../helpers/SearchHelper';
 

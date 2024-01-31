@@ -8,7 +8,7 @@ import { CommingSoon } from '../../components/CommingSoon';
 
 const BASE_URL = 'https://mate-academy.github.io/react_phone-catalog/_new/';
 
-export const CardPage = () => {
+export const CardPage: React.FC = () => {
   const {
     cardProducts,
     removeProduct,

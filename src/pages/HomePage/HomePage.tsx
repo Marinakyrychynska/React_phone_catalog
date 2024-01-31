@@ -5,7 +5,7 @@ import { Product } from '../../types/Product';
 import { getProducts } from '../../api/productsApi';
 import { Categories } from '../../components/Categories';
 
-export const HomePage = () => {
+export const HomePage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);

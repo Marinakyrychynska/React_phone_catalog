@@ -10,6 +10,7 @@
   border: 1px solid $elements-color;
   border-radius: 10px;
   background-color: $hover-bg-color;
+  margin-bottom: 40px;
 
   &__text {
     @extend %h1;

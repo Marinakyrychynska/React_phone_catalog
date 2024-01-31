@@ -23,9 +23,10 @@ export const SelectItems: React.FC = () => {
   };
 
   const handleBlur = (event: React.FocusEvent<HTMLButtonElement>) => {
-    const relatedTargetClassName = (event.relatedTarget as HTMLElement)?.className;
-
-    if (relatedTargetClassName && relatedTargetClassName.includes('')) {
+    if (
+      event.relatedTarget instanceof Element
+      && event.relatedTarget.className.includes('')
+    ) {
       return;
     }
 
@@ -43,9 +44,9 @@ export const SelectItems: React.FC = () => {
       </div>
       <div className="selectItems__container">
         <button
-          id="triger"
           className="selectItems__btn"
           type="button"
+          id="triger"
           onClick={() => setIsSelectOpen(!isSelectOpen)}
           onBlur={handleBlur}
         >
